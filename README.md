@@ -1,6 +1,6 @@
 Overdrive is a NASM programming language compiled into assembler
 
-Install:
+#Install:
 
 Enter into the console:
 
@@ -8,7 +8,7 @@ Enter into the console:
 
 -sudo apt -y install nasm
 
-How to use:
+#How to use:
 
 In the downloaded project, create a file with the .ovd extension (Test.ovd) the entire code will be written in it
 
