@@ -1,7 +1,7 @@
 Overdrive is a NASM programming language compiled into assembler
 
 # Install:
-g++ compiller
+A g++ compiler is required
 
 # How to use:
 
@@ -9,6 +9,6 @@ In the downloaded project, create a file with the .ovd extension (Test.ovd) the 
 
 To compile a project, type in the console:
 
--./Overdrive
+-./Overdrive-Linux
 
 -Test.ovd(The name of yours .ovd file)
