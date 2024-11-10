@@ -9,60 +9,57 @@
 * [Библиотеки](#Библиотеки)
 
 # Переменные
-Для обьявления переменных есть секция Data
+Для обьявления переменных используется ключевое слово `var`
 
-Существуют переменные двух типов `int` и `string`
-```python
-Data():
-    string a;
-    int b;
+Существуют переменные двух типов `int, float, bool и string`
+```C++
+var int C;
+var string B = "HelloOverdrive";
 ```
 
 
 # Вывод в консоль
-Весь код выполняется в секции `Start()`
-Для вывода в консоль есть 2 функции `Print` и `std:PrintF`
-```python
-Data():
-    string a = "Hello_World!";
-Start():
-    Print: a;
-```
-Для использования `std:PrintF` нужно импортировать библиотеку `std`
-```python
-#include "std.ovdh"
-Data():
-    string a = "Hello_World!";
-Start():
-    std:PrintF: a;
+Весь код выполняется в функции `Start`
+Для вывода в консоль есть 2 функции `Print` и `PrintLn`
+```C++
+var string B = "HelloOverdrive";
+
+Start:
+{
+    PrintLn B;
+}
 ```
 
 # Консольный ввод
 Для ввода в консоль есть функция `Input`
 ```python
 #include "std.ovdh"
-Data():
-    string a = "Hello_World!";
-Start():
-    Input: a;
-    std:PrintF: a;
+var string B = "HelloOverdrive";
+
+Start:
+{
+    Input B;
+}
 ```
-Во избежание ошибок для вывода в консоль измененного текста нужно использовать `std:PrintF`
 
 # Условные конструкции
 Условие состоит из `if` и `else`
 ```python
-if b == c:
-    Print: a;
-endif;
+if C == 3:
+{
+    PrintLn "Hello";
+}
 ```
 С исспользованием `else`
 ```python
-if b == c:
-    Print: a;
+if C == 3:
+{
+    PrintLn "Hello";
+}
 else:
-    Print: L;
-endif;
+{
+    PrintLn "Bye";
+}
 ```
 * `if` - если
 * `else` - иначе
@@ -78,69 +75,46 @@ endif;
 Пример цикла `While`
 ```python
 While 10:
-    Print: a;
-End_While;
+{
+    PrintLn "Hello";
+}
 ```
-В данном примере переменная `a` будет выведенна в консоль 10 раз
+В данном примере переменная `Hello` будет выведенна в консоль 10 раз
 
 Пример цикла `For`
 ```python
-Data():
-    string a = "Hello_World!";
-int b = 0;
-int c = 10;
-Start():
-    For b < c +:
-        Print: a;
-    End_While;
+For int i = 0 i < 10 i ++:
+{
+    PrintLn "Hello";
+}
 ```
-В данном примере переменная `a` будет выведенна в консоль 10 раз, и к переменной `b` будет прибавленно 10
+В данном примере переменная `Hello` будет выведенно в консоль 10 раз, и к переменной `i` будет прибавленно 10
 
 # Функции
 Для определения функции используется ключевое слово `Function`, далее идет название функции
 ```python
-Function Z:
-    Print: a;
-End_Function;
+Function Z (string i):
+{
+    PrintLn i;
+}
 ```
-Для вызова функции используется ключевое слово `Call_Function`, далее идет название функции
+Для вызова функции используется ключевое слово `Function_Call`, далее идет название функции
 ```python
-Call_Function: Z;
+Function_Call Z("Hello");
 ```
 # Return в функциях
-Для того чтобы задать значение функции используется ключевое слово `return`, вместо `End_Fuction`
+Для того чтобы задать значение функции используется `Func`, а дальше тип переменной которую возвращает функция
 ```python
-Function Z:
-    Print: a;
-    b = 10;
-return b;
+Func int Z (int b):
+{
+    b =: 10;
+    return b;
+}
 ```
-В данном примере переменная `b` это результат функции
-Для того чтобы получить значение из функции нужно вызвать функцию и использовать используется ключевое слово `Function_Return`
-```python
-Call_Function: Z;
-Function_Return d;
-```
-В данном примере переменная `d` будет равна результату функции Z
-
 # Библиотеки 
-Все библиотеки должны храниться в папке `Libs`, и иметь расширение `.ovdh`. Допустим библиотека будет называться V.ovdh
-
-Пример библиотеки:
-```python
-string a = "Hello_World";
-Function Z:
-    Print: a;
-End_Function;
-```
-* В библиотеках не используются секции `Start()` и `Data()`
-
+Для импорта библиотек используется ключевое слово `#include`
 Пример использования библиотеки:
 ```python
-#include "V.ovdh"
-Data():
-
-Start():
-    Call_Function: Z;
+#include Lib.ovd
 ```
-* Для импорта библиотек используется ключевое слово `#include`
+* В библиотеках не используется функция `Start`
